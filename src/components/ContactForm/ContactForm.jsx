@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import PropTypes from 'prop-types';
 import { Form, Label, Input, Button } from "./ContactForm.styled";
 
