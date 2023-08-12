@@ -35,7 +35,8 @@ export const App = () => {
  
     contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())
       ? (alert(`${newContact.name} is already in contacts`))
-      : setContacts(contacts => { return [newContact, ...contacts] } )
+      : setContacts(contacts => { return [newContact, ...contacts] })
+    
   }
 
    const deleteContact = (id) => {
