@@ -29,8 +29,6 @@ const ContactForm = ({addContact}) => {
         
         setName('');
         setNumber('');
-        
-        e.target.reset();
     };
 
     return (
@@ -40,6 +38,7 @@ const ContactForm = ({addContact}) => {
                 <Input
                     type="text"
                     name="name"
+                    value={name}
                     pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ' \-\u0400-\u04FF]+$"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
@@ -49,6 +48,7 @@ const ContactForm = ({addContact}) => {
                 <Input
                     type="tel"
                     name="number"
+                    value={number}
                     pattern="^[+]?[0-9\\.\\-\\s]{1,15}$"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required

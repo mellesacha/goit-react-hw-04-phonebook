@@ -28,45 +28,46 @@ export const App = () => {
 
   const onAddContact = (contact) => {
   
-      const newContact = {
-        ...contact,
-        id: nanoid()
-      }
+    const newContact = {
+      ...contact,
+      id: nanoid()
+    }
  
     contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())
       ? (alert(`${newContact.name} is already in contacts`))
       : setContacts(contacts => { return [newContact, ...contacts] })
     
-  }
+   
+  };
 
-   const deleteContact = (id) => {
+  const deleteContact = (id) => {
     setContacts((contacts) => {
-      return  contacts.filter((contact) => contact.id !== id)
+      return contacts.filter((contact) => contact.id !== id)
     });
   };
 
   const handlInputFilter = (e) => {
-    setFilter(e.target.value )
-  }
+    setFilter(e.target.value)
+  };
 
   const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase().trim())
-    )
+    contact.name.toLowerCase().includes(filter.toLowerCase().trim())
+  );
 
 
   return (
- <Container>
-  <Title>Phonebook</Title>
-        <ContactForm addContact={onAddContact } />
+    <Container>
+      <Title>Phonebook</Title>
+      <ContactForm addContact={onAddContact} />
 
-  <Title>Contacts</Title>
-        <Filter search={filter}  handlInput={handlInputFilter}/>
-        <ContactList contacts={filteredContacts} onDeleteContact={deleteContact} />
-</Container>
-    )
+      <Title>Contacts</Title>
+      <Filter search={filter} handlInput={handlInputFilter} />
+      <ContactList contacts={filteredContacts} onDeleteContact={deleteContact} />
+    </Container>
+  );
   
    
-}
+};
 
 // export class App extends Component {
 
